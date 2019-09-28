@@ -21,4 +21,4 @@ clean:
 	rm -f ${BIN}/*.class
 	
 run:
-	java -cp ./bin WordApp 0 4 "bin/example_dict.txt"
+	java -cp ./bin WordApp 20 4 "bin/example_dict.txt"
