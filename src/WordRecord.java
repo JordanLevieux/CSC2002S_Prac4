@@ -6,8 +6,8 @@ public class WordRecord {
 	private boolean dropped;
 	
 	private int fallingSpeed;
-	private static int maxWait=20;
-	private static int minWait=10;
+	private static int maxWait=30;
+	private static int minWait=5;
 
 	public static WordDictionary dict;
 	
@@ -71,7 +71,7 @@ public class WordRecord {
 		setX(x);
 	}
 	public synchronized void resetPos() {
-		setY(0);
+		setY(-10);
 	}
 
 	public synchronized void resetWord() {

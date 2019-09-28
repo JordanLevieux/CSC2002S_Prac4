@@ -71,6 +71,33 @@ public class WordApp {
 	          		score.caughtWord(text.length());
 	          		caught.setText("Caught: " + score.getCaught() + "    ");
 	          		scr.setText("Score:" + score.getScore()+ "    ");
+	          		if(score.getCaught()>=totalWords)
+	          		{
+	          			done=true;
+	          			JFrame victoryFrame = new JFrame();
+	          			victoryFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	          			victoryFrame.setSize(frameX, frameY);
+	          			JPanel victoryPanel = new JPanel(){
+	          				
+	          				public void paintComponent(Graphics g)
+	          				{
+	          					g.setColor(Color.black);
+	          					g.setFont(new Font("Arial", Font.PLAIN, 26));
+	          					g.drawString("Victory", frameX/2-40, frameY/2);
+	          					g.setColor(Color.green);
+	          					g.drawString("FireWorks.gif", frameX/2-70, frameY/2+40);
+	          				}
+	          			};
+        				victoryPanel.setLayout(new BoxLayout(victoryPanel, BoxLayout.PAGE_AXIS)); 
+      					victoryPanel.setSize(frameX,frameY);
+      					victoryFrame.add(victoryPanel);
+      					victoryFrame.setLocationRelativeTo(null);
+      					victoryFrame.setContentPane(victoryPanel);
+      					victoryFrame.setVisible(true);
+      					
+      					//try{Thread.sleep(2000);}catch(Exception ex){System.out.println("Yeet");}
+      					//System.exit(0);
+          			}
 	          		w.run();
           		}
       		}
@@ -78,6 +105,7 @@ public class WordApp {
 	          textEntry.requestFocus();
 	      }
 	    });
+	   
 	   
 	   txt.add(textEntry);
 	   txt.setMaximumSize( txt.getPreferredSize() );

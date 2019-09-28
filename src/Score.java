@@ -10,7 +10,6 @@ public class Score {
 		gameScore=new AtomicInteger(0);
 	}
 		
-	// all getters and setters must be synchronized
 	
 	public int getMissed() {
 		return missedWords.get();
@@ -20,7 +19,7 @@ public class Score {
 		return caughtWords.get();
 	}
 	
-	public int getTotal() {
+	public synchronized int getTotal() {
 		return (missedWords.get()+caughtWords.get());
 	}
 
@@ -33,7 +32,7 @@ public class Score {
 	}
 
 	public synchronized void caughtWord(int length) {
-		caughtWords.getAndIncrement();;
+		caughtWords.getAndIncrement();
 		gameScore.set(gameScore.get()+length);
 	}
 
